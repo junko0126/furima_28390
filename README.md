@@ -7,11 +7,13 @@
 | ---------------- | ------ | ------------|
 | first_name       | string | null: false |
 | family_name      | string | null: false |
+| first_name_kana  | string | null: false |
+| family_name_kana | string | null: false |
 | nickname         | string | null: false |
 | email            | string | null: false |
 | password         | string | null: false |
 | password_confirm | string | null: false |
-| birthday         | string | null: false |
+| birthday         | date   | null: false |
 
 ### Association
 
@@ -22,11 +24,11 @@
 
 | Column    | Type      | Options      |
 | --------  | --------  | ------------ |
-| i_name    | string    | null: false  |
-| i_content | text      | null: false  |
+| name      | string    | null: false  |
+| content   | text      | null: false  |
 | price     | integer   | null: false  |
-| category  | string    | null: false  |
-| status    | string    | null: false  |
+| category  | integer   | null: false  |
+| status    | integer   | null: false  |
 | user_id   | reference | null: false  |
 | order_id  | reference | null: false  |
 
@@ -35,13 +37,15 @@
 - belongs_to :user
 - has_one :order
 
-## ordersテーブル
+## addressテーブル
 
 | Column      | Type      | Options         |
 | ----------- | --------- | --------------- |
 | prefecture  | string    | null: false     |
-| payment     | string    | null: false     |
-| day         | string    | null: false     |
+| postal_code | integer   | default:" "     |
+| city        | integer   | default:" "     |
+| house_number| integer   | default:" "     |
+| building    | integer   | default:" "     |
 | user_id     | reference | null: false     |
 | item_id     | reference | null: false     |
 
@@ -49,15 +53,18 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :order
 
-## addressテーブル
+## ordersテーブル
 
 | Column     | Type      | Options         |
 | ---------- | --------- | --------------- |
-| address    | string    | null: false     |
-| order_id   | reference | null: false     |
+| place      | string    | null: false     |
+| payment    | string    | null: false     |
+| days       | string    | null: false     |
+| message    | text      | default:" "     |
+| address_id | reference | null: false     |
 
 ### Association
 
-- belongs_to :order
+- belongs_to :address
