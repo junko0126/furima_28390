@@ -30,8 +30,11 @@
 | price     | integer   | null: false  |
 | category  | integer   | null: false  |
 | status    | integer   | null: false  |
-| user_id   | reference | null: false  |
-| order_id  | reference | null: false  |
+| payment   | integer   | null: false  |
+| place     | integer   | null: false  |
+| days      | integer   | null: false  |
+| user      | references| null: false  |
+
 
 ### Association
 
@@ -40,33 +43,31 @@
 
 ## ordersテーブル
 
-| Column     | Type      | Options         |
-| ---------- | --------- | --------------- |
-| place      | string    | null: false     |
-| payment    | string    | null: false     |
-| days       | string    | null: false     |
-| comment    | text      | default:" "     |
-| user_id    | reference | null: false     |
-| item_id    | reference | null: false     |
-| address_id | reference | null: false     |
+| Column   | Type       | Options         |
+| -------- | ---------- | --------------- |
+| user     | references | null: false     |
+| item     | references | null: false     |
+
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- has_one: address
 
 
 ## addressテーブル
 
 | Column      | Type      | Options         |
 | ----------- | --------- | --------------- |
-| prefecture  | string    | null: false     |
-| postal_code | string    | default:" "     |
-| city        | string    | default:" "     |
-| house_number| string    | default:" "     |
-| building    | string    | default:" "     |
-| user_id     | reference | null: false     |
-| item_id     | reference | null: false     |
+| prefecture  | integer   | null: false     |
+| postal_code | string    | null: false     |
+| city        | string    | null: false     |
+| house_number| string    | null: false     |
+| building    | string    | null: false     |
+| phone       | string    | null: false     |
+
 
 ### Association
 
+- belongs_to: order
