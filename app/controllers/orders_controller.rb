@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @user = Use.create(order_params)
+    @user = User.create(order_params)
     @user.save
   end
 
