@@ -11,8 +11,8 @@ describe User do
         expect(@user).to be_valid
       end
       it 'passwordが６文字以上であれば登録できる' do
-        @user.password = '000000'
-        @user.password_confirmation = '000000'
+        @user.password = 'a1a1a1a1'
+        @user.password_confirmation = 'a1a1a1a1'
         expect(@user).to be_valid
       end
     end
