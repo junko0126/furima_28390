@@ -1,7 +1,6 @@
 require 'rails_helper'
 describe User do
   before do
-    # binding.pry
     @user = FactoryBot.build(:user)
   end
 
