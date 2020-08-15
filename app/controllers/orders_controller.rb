@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     else
       render :new
     end
+  end
 
   def create
     @user = Use.create(order_params)
