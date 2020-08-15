@@ -44,6 +44,16 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Family name kana can't be blank")
       end
+      it "first_name_kanaがカタカナ以外であれば登録できない" do
+        @user.first_name_kana = 'ああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid. Input full-width katakana characters.")
+      end
+      it "familiy_name_kanaがカタカナ以外であれば登録できない" do
+        @user.family_name_kana = 'ああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana is invalid. Input full-width katakana characters.")
+      end
       it '重複したemailが存在する場合は登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
