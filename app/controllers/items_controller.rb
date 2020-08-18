@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
-  def new
+
+  def index
   end
+  
+  def new
+    @item = Item.new
 
   def create
     @item = Item.create(item_params)
@@ -13,6 +17,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item)
+    params.require(:item).permit(:name, :content, :image, :price, :category, :status, :payment, :place, :days).marge(user_id: crrent_user.id)
   end
 end
