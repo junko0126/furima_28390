@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2020_08_17_093216) do
     t.text "content", null: false
     t.integer "price", null: false
     t.integer "category_id", null: false
-    t.integer "status", null: false
-    t.integer "payment", null: false
-    t.integer "place", null: false
-    t.integer "days", null: false
+    t.integer "status_id", null: false
+    t.integer "payment_id", null: false
+    t.integer "place_id", null: false
+    t.integer "days_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
