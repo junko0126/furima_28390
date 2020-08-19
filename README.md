@@ -31,7 +31,7 @@
 | category  | integer   | null: false                    |
 | status    | integer   | null: false                    |
 | payment   | integer   | null: false                    |
-| place     | integer   | null: false                    |
+| prefecture| integer   | null: false                    |
 | days      | integer   | null: false                    |
 | user      | references| null: false, foreign_key: true |
 
@@ -60,7 +60,7 @@
 
 | Column      | Type      | Options                       |
 | ----------- | --------- | ----------------------------- |
-| prefecture  | integer   | null: false                   |
+| place       | integer   | null: false                   |
 | postal_code | string    | null: false                   |
 | city        | string    | null: false                   |
 | house_number| string    | null: false                   |
