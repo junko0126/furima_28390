@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :payment
   belongs_to_active_hash :days
   validates :name, :image, :content, :price, :category_id, :status_id, :prefecture_id, :payment_id, :days_id, presence: true
-  validates :category_id, :status_id, :prefecture_id, :payment_id, :days_id, numericality: { other_than: 1 }
+  validates :price, :numericality => { :greater_then => 300, :less_than => 9999999 }
   
   belongs_to :user
   has_one :order
