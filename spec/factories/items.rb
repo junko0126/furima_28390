@@ -7,7 +7,7 @@ FactoryBot.define do
     payment              { Payment.all.sample }
     prefecture           { Prefecture.all.sample }
     days                 { Days.all.sample }
-    price                { '1000' }
+    price                { '10000' }
     association :user
   end
 end
