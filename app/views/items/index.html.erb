@@ -185,7 +185,7 @@
     <%= link_to '出品する', new_item_path, class: 'purchase-btn-text' %>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% else %>
-      <%= link_to '出品する', users/sign_in, class: 'purchase-btn-text' %>
+      <%= link_to '出品する', new_user_session_path, class: 'purchase-btn-text' %>
       <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% end %>
 </div>
