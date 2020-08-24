@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
       @item.image = fixture_file_upload('public/images/test_image.png')
     end
 
-    describe '商品出品の登録'do
+    describe '商品出品の登録' do
       context '商品出品の登録がうまくいくとき' do
         it 'nameとimage、contentとprice、categoryとstatus、paymentとprefecture、daysが存在すれば保存できる ' do
           expect(@item).to be_valid
@@ -69,16 +69,16 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Price can't be blank")
         end
 
-        it 'priceの範囲が￥300〜9,999,999の間でないと登録できない'do
+        it 'priceの範囲が￥300〜9,999,999の間でないと登録できない' do
           @item.price = 299
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is invalid. Price must be ¥300~9,999,999.")
+          expect(@item.errors.full_messages).to include('Price is invalid. Price must be ¥300~9,999,999.')
         end
 
         it 'priceが￥9,999,999より大きければ登録できない' do
-          @item.price = 100000000
+          @item.price = 100_000_000
           @item.valid?
-          expect(@item.errors.full_messages).to include("Price is invalid. Price must be ¥300~9,999,999.")
+          expect(@item.errors.full_messages).to include('Price is invalid. Price must be ¥300~9,999,999.')
         end
       end
     end
