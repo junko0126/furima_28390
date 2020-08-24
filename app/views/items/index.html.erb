@@ -144,9 +144,7 @@
         </div>
         <% end %>
       </li>
-    <% end %>
-
-    <% if @items != nil %>
+    <% else %>
       <% @items.each do |item| %>
         <li class='list'>
           <%= link_to "#" do %>
