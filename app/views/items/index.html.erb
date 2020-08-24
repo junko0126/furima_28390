@@ -146,9 +146,11 @@
       </li>
     <% else %>
       <% @items.each do |item| %>
+      <%= link_to  item_path(item.id), method: :get do %>
         <li class='list'>
-          <%= link_to "#" do %>
+
            <div class='item-img-content'>
+           
             <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outの表示 %>
@@ -171,8 +173,8 @@
             </div>
           </div>
         </div>
-        <% end %>
-      </li>
+      <% end %>
+        </li>
       <% end %>
     <% end %>
     </ul>
