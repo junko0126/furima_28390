@@ -2,17 +2,15 @@ class OrdersController < ApplicationController
   def index
   end
 
-  def new
-    if @user = User.new
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
+  # def new
+  #   if @user = User.new
+  #     redirect_to root_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def create
-    @user = User.create(order_params)
-    @user.save
   end
 
   private
