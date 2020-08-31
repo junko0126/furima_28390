@@ -1,7 +1,7 @@
 
 window.addEventListener('load', function(){
   let price_form = document.getElementById("item-price");
-  console.log(price_form)
+  // console.log(price_form)
   let tax_form = document.getElementById("add-tax-price");
   let profit_form = document.getElementById("profit");
   
