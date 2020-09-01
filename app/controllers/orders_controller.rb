@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
   end
 
   def limit_user
+    @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
       redirect_to root_path
     end
