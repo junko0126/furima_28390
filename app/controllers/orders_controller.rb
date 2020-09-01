@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :nologin_user, only: [:index]
   before_action :limit_user, only: [:index]
   before_action :no_item, only: [:index]
-  before_action :item_set, only [:index, :create]
+  before_action :item_set, only: [:index, :create]
  
 
   def index
