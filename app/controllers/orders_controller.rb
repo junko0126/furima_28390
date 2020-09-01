@@ -2,11 +2,11 @@ class OrdersController < ApplicationController
   before_action :nologin_user, only: [:index]
   before_action :limit_user, only: [:index]
   before_action :no_item, only: [:index]
+  before_action :item_set, only [:index, :create]
  
 
   def index
     @order = OrderAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -28,7 +27,6 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
@@ -37,9 +35,7 @@ class OrdersController < ApplicationController
     )
   end
 
-  
   def limit_user
-    @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
       redirect_to root_path
     end
@@ -53,5 +49,9 @@ class OrdersController < ApplicationController
     if @item.order != nil
       redirect_to root_path
     end
+  end
+
+  def item_set
+    @item = Item.find(params[:item_id])
   end
 end
