@@ -5,13 +5,11 @@ class OrdersController < ApplicationController
  
 
   def index
-    # binding.pry
     @order = OrderAddress.new
     @item = Item.find(params[:item_id])
   end
 
   def create
-    # binding.pry
     @order =  OrderAddress.new(order_params)
     if @order.valid?
       pay_item
@@ -30,7 +28,6 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    # binding.pry
     @item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
