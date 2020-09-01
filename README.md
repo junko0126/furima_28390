@@ -45,6 +45,7 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
+| price  | integer    | null: false
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
 
@@ -58,15 +59,15 @@
 
 ## addressテーブル
 
-| Column      | Type      | Options                       |
-| ----------- | --------- | ----------------------------- |
-| place       | integer   | null: false                   |
-| postal_code | string    | null: false                   |
-| city        | string    | null: false                   |
-| house_number| string    | null: false                   |
-| building    | string    |                               |
-| phone       | string    | null: false                   |
-| order       | reference | null:false, foreign_key: true |
+| Column        | Type      | Options                       |
+| -----------   | --------- | ----------------------------- |
+| prefecture_id | integer   | null: false                   |
+| postal_code   | string    | null: false                   |
+| city          | string    | null: false                   |
+| house_number  | string    | null: false                   |
+| building      | string    |                               |
+| phone         | string    | null: false                   |
+| order         | reference | null:false, foreign_key: true |
 
 
 ### Association
