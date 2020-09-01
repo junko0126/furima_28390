@@ -1,8 +1,8 @@
 const pay = () => {
-  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); //本番環境に環境変数を設定してください！
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent=阻害する、e=submit=createアクションを動かすの（デフォルト）を阻害している
 
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
@@ -26,7 +26,7 @@ const pay = () => {
         document.getElementById("card-exp-month").removeAttribute("name");
         document.getElementById("card-exp-year").removeAttribute("name");
 
-        document.getElementById("charge-form").submit();
+        document.getElementById("charge-form").submit(); //createを再度動かす
         document.getElementById("charge-form").reset();
       } else {
       }
