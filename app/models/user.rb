@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :orders
 
   # "正規表現"
-  @limit1 = /\A[ぁ-んァ-ン一-龥]/
+  @limit1 = /\A[ぁ-んァ-ン一-龥]+\z/
   limit2 = /\A[ァ-ヶー－]+\z/
   limit3 = /\A[a-z0-9]+\z/i
   limit4 = /\A[a-z\d{6,20}[@]{3,20}\z]/i
