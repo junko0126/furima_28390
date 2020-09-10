@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :item_new, only: [:new]
 
   def index
     @items = Item.all.includes(:user).order('created_at DESC')
@@ -11,7 +12,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -49,5 +49,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def item_new
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
